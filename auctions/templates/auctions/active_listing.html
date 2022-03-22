@@ -1,0 +1,12 @@
+<h2>Listing:</h2>
+<ul>
+    {% for product in products %}
+        <li>{{ product.title }}</li>
+        <li>{{ product.description }}</li>
+        <li>{{ product.price }}</li>
+        <li>{{ product.image }}</li>
+        <li>{{ product.category }}</li>
+    {% empty %}
+        <li>No Passengers.</li>
+    {% endfor %}
+</ul>

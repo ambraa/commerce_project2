@@ -1,0 +1,37 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h1>Listing:</h1>
+<div class="card" style="margin: 10px; padding:10px; float: left; width: 500px; border-color: #007bff; ">
+<ul>
+    <p align="center" style="color:#007bff ">{{ product.id }}</p>
+    <li><span style="color:#007bff ">Title:</span> {{product.title}} </li>
+    <li><span style="color:#007bff ">Description:</span> {{product.description}} </li>
+    <li><span style="color:#007bff ">Price:</span> {{product.price}}</li>
+    <li><span style="color:#007bff ">Image:</span> {{product.image}} </li>
+    <li><span style="color:#007bff ">Category:</span> {{product.category}} </li>
+    <li><span style="color:#007bff ">Bidder:</span> {{product.bidder}} </li>
+</ul>
+<br>
+
+<form action="addwatchlist/{{product.id}}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add to Watchlist" class="btn btn-primary" span style="margin-left: 150px;">
+</form>
+</div>
+<br>
+<div class="container" style="float: left; margin: 10px; padding:10px">
+<h5>New bid</h5>
+<form action="newbid/{{product.id}}" method="post">
+    {% csrf_token %}
+    <span style="width: 20px"><input type="number" name="newbid"></span>
+    <input type="submit" value="submit" class="btn btn-primary">
+
+</form>
+</div>
+<br>
+
+
+
+{% endblock %}

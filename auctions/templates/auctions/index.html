@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+    
+        {% for product in products %}
+        <div class="card" style="margin: 10px; padding:10px; float: left; width: 250px; border-color:#c0deff">
+            <p align="center"><a href="{% url 'listing' product.id %}">{{ product.id }} </a></p>
+        <ul>
+            <li>Title: {{product.title}} </li>
+            <li>Price: {{product.price}} </li>
+            <li>Category: {{product.category}} </li>
+        </ul>
+        </div>
+             <!-- {{listing.description}}, {{listing.price}}, {{listing.image}}, {{listing.category}}, {{listing.last_bid}}, {{listing.bidder}} "</li> -->
+        {% endfor %}
+
+   
+    
+        
+{% endblock %}
